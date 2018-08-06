@@ -20,10 +20,15 @@ namespace TreehouseDefense
                   new MapLocation (5, 2, map),
                   new MapLocation (6, 2, map),
                   new MapLocation (7, 2, map),
-              });
+                }
+             );
+              
+            Invader invader = new Invader();
+            MapLocation location = new MapLocation(0, 0, map);
             
-            MapLocation location = path.GetLocationAt(8);            
-            Console.WriteLine(location.X + "," + location.Y);
+            invader.Location = location;
+            
+            location = invader.Location;
           }                                                
           catch(OutOfBoundsException ex)
           {
