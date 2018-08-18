@@ -1,26 +1,24 @@
-namespace TreehouseDefense
+namespace TowerDefense
 {
-    class TreehouseDefenseException : System.Exception
+    class TowerDefense : System.Exception
     {
-       public TreehouseDefenseException()
-       {
-       
-       }
-       public TreehouseDefenseException(string message) :base(message)
-       {
-         
-       }
+        public TowerDefenseException()
+        {
+        }
+        
+        public TowerDefenseException(string message) : base(message)
+        {
+        }
     }
-  
-    class OutOfBoundsException : TreehouseDefenseException
+    
+    class OutOfBoundsException : TowerDefenseException
     {
-      public OutOfBoundsException()
-      {
-      
-      }
-      public OutOfBoundsException(string message) :base(message)
-      {
-      
-      }
+        public OutOfBoundsException()
+        {
+        }
+        
+        public OutOfBoundsException(string message) : base(message)
+        {
+        }
     }
 }
