@@ -1,29 +1,50 @@
-namespace TreehouseDefense
+using System;
+
+namespace TowerDefense
 {
-  class Tower 
-  {
-    private const int _range = 1;
-    private const int _power = 1;
-    
-    private readonly MapLocation _location;
-    
-    public Tower(MapLocation location)
+    class Tower
     {
-      _location = location;
-    }
-    
-    public void FireOnInvaders(Invader[] invaders)
-    {             
-      foreach(Invader invader in invaders)
-      {
-        //do stuff with invader
-        if(invader.IsActive && _location.InRangeOf(invader.Location, _range))
+        protected virtual int Range{ get;} = 1;
+        public virtual int Power{ get;} = 1;
+        protected virtual double Accuracy { get;} = .75;
+        
+        private static readonly Random _random = new Random();
+        
+        private readonly MapLocation _location;
+        
+        public Tower(MapLocation location)
         {
-          invader.DecreaseHealth(_power);
-          break;
+            _location = location;
         }
-      }                  
-    }          
-  }
+        
+        private bool IsSuccessfulShot()
+        {
+            return _random.NextDouble() < Accuracy;
+        }
+        
+        public void FireOnInvaders(Invader[] invaders)
+        {
+            foreach(Invader invader in invaders)
+            {
+                if(invader.IsActive && _location.InRangeOf(invader.Location, Range))
+                {
+                    if(IsSuccessfulShot())
+                    {
+                        invader.DecreaseHealth(Power);
+                        
+                        if(invader.IsNeutralized)
+                        {
+                            Console.WriteLine("Neutralized an invader!");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Shot at and missed an invader");
+                    }
+                    break;
+                }
+            }
+        }
+    }
 }
 
