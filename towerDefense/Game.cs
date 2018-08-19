@@ -1,6 +1,6 @@
 using System;
 
-namespace TowerDefense
+namespace TreehouseDefense
 {
     class Game
     {
@@ -23,6 +23,14 @@ namespace TowerDefense
                     }
                 );
                 
+                MapLocation location = new MapLocation(0, 2, map);
+              
+                if(path.isOnPath(location))
+                {
+                    Console.WriteLine(location + " is on the path");
+                    return;
+                }
+              
                 Invader[] invaders = 
                 {
                     new ShieldedInvader(path),
