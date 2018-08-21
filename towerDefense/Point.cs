@@ -1,6 +1,6 @@
 using System;
 
-namespace TreehouseDefense
+namespace TowerDefense
 {
     class Point
     {
