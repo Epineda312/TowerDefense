@@ -1,6 +1,5 @@
-namespace TreehouseDefense
+namespace TowerDefense
 {
-  
   interface IMappable
   {
     MapLocation Location { get; }
