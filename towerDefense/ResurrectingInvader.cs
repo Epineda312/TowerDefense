@@ -1,4 +1,4 @@
-namespace TreehouseDefense
+namespace TowerDefense
 {
   class ResurrectingInvader : IInvader
   {
